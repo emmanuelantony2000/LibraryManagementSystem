@@ -6,12 +6,16 @@ import variables
 #data = pd.read_csv('books.csv')
 data = pd.read_pickle('books.pickle')
 print(data)
-data.dropna(inplace = True)
+#data.dropna(inplace = True)
 newline = scan()
 print(data[variables.columns[0]], newline)
 
-condition = (data[variables.columns[0]] == newline[0])[0]
-print(condition, variables.columns[0], newline[0])
+#condition = (data[variables.columns[0]] == newline[0])[0]
+condition = not (data[data[variables.columns[0]] == newline[0]]).empty
+print(condition)
+print(data[variables.columns[0]])
+print(variables.columns[0])
+print(newline[0])
 
 if condition:
     data.loc[data[variables.columns[0]]==newline[0], \

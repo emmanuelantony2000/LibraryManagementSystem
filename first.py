@@ -1,5 +1,6 @@
 import variables
 import pandas as pd
+import numpy as np
 
 #data = pd.DataFrame([['init', 'init', 'init', 1]], columns = variables.columns)
 data = pd.DataFrame([['test', 'test', 'test', 1]], columns = variables.columns)
