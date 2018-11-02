@@ -33,4 +33,7 @@ data.to_pickle('books.pickle')
 import shutil
 shutil.copy('books.pickle', 'Books.pickle')
 
+data = pd.read_pickle('Books.pickle')
+data.to_excel('Books.xlsx')
+
 print('Done')
