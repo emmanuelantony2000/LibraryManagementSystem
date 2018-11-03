@@ -11,17 +11,20 @@ print(data)
 
 newline = enter()
 
-condition = not (data[data[variable.issue[0]] == newline[0]]).empty
+condition = not (data[data[variables.issue[0]] == newline[0]]).empty
 now = pd.Timestamp((datetime.datetime.now()).strftime('%Y-%m-%d'))
 
 if condition:
-    diff = data.loc[(data[variables.input[0]]==newline[0]) & \
-    (data[variables.input[1]]==newline[1]) & \
-    (data[variables.input[2]]==newline[2]) & \
-    (data[variables.input[2]]==newline[2]), variables.input[-1]] - now
+    diff = ((data.loc[(data[variables.issue[0]]==newline[0]) & \
+    (data[variables.issue[1]]==newline[1]) & \
+    (data[variables.issue[2]]==newline[2]) & \
+    (data[variables.issue[3]]==newline[3]), \
+    variables.issue[-1]])[0] - now).date
     print(diff)
 else:
     newline.append(now)
-    newline.append(now+timedelta(13))
+    newline.append(now+datetime.timedelta(13))
     newline = pd.DataFrame([newline], columns=variables.issue)
     data = data.append(newline, ignore_index=True)
+
+data.to_pickle('issue.pickle')
