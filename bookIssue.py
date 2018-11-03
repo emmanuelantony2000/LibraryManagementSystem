@@ -13,13 +13,19 @@ newline = enter()
 
 condition = not (data[data[variables.issue[0]] == newline[0]]).empty
 now = pd.Timestamp((datetime.datetime.now()).strftime('%Y-%m-%d'))
-
+print(variables.issue[-1])
 if condition:
-    diff = ((data.loc[(data[variables.issue[0]]==newline[0]) & \
+    print(type(data.loc[(data[variables.issue[0]]==newline[0]) & \
     (data[variables.issue[1]]==newline[1]) & \
     (data[variables.issue[2]]==newline[2]) & \
     (data[variables.issue[3]]==newline[3]), \
-    variables.issue[-1]])[0] - now).date
+    variables.issue[-1]][0]))
+    print(type(now))
+    diff = (data.loc[(data[variables.issue[0]]==newline[0]) & \
+    (data[variables.issue[1]]==newline[1]) & \
+    (data[variables.issue[2]]==newline[2]) & \
+    (data[variables.issue[3]]==newline[3]), \
+    variables.issue[-1]][0] - now).days
     print(diff)
 else:
     newline.append(now)
