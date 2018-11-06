@@ -71,7 +71,7 @@ if (not (books[(books[variables.input[2]] == newline[3])&\
         (data[variables.issue[1]]==newline[1]) & \
         (data[variables.issue[2]]==newline[2]) & \
         (data[variables.issue[3]]==newline[3]), \
-        variables.issue[-1]]
+        variables.issue[-1]] = now
         data.to_pickle('Issue.pickle')
         data.to_excel('Issue.xlsx')
         books.loc[books[variables.input[2]]==newline[3], variables.input\
