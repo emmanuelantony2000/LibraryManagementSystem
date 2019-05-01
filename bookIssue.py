@@ -66,14 +66,14 @@ if (not (books[(books[variables.input[2]] == newline[3])&\
         (data[variables.issue[3]]==newline[3])].index)
         data.to_pickle('issue.pickle')
         data.to_excel('issue.xlsx')
-        data = pd.read_pickle('Issue.pickle')
+        data = pd.read_pickle('issue1.pickle')
         data.loc[(data[variables.issue[0]]==newline[0]) & \
         (data[variables.issue[1]]==newline[1]) & \
         (data[variables.issue[2]]==newline[2]) & \
         (data[variables.issue[3]]==newline[3]), \
         variables.issue[-1]] = now
-        data.to_pickle('Issue.pickle')
-        data.to_excel('Issue.xlsx')
+        data.to_pickle('issue1.pickle')
+        data.to_excel('issue1.xlsx')
         books.loc[books[variables.input[2]]==newline[3], variables.input\
         [-1]] += 1
     else:
@@ -86,8 +86,8 @@ if (not (books[(books[variables.input[2]] == newline[3])&\
         data = data.append(newline, ignore_index=True)
         data.to_pickle('issue.pickle')
         data.to_excel('issue.xlsx')
-        data = pd.read_pickle('Issue.pickle')
+        data = pd.read_pickle('issue1.pickle')
         data = data.append(newline, ignore_index=True)
-        data.to_pickle('Issue.pickle')
-        data.to_excel('Issue.xlsx')
+        data.to_pickle('issue1.pickle')
+        data.to_excel('issue1.xlsx')
 books.to_pickle('books.pickle')
